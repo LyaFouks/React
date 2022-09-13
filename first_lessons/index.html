@@ -3,23 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <title>Add React in One Minute</title>
+    <style type="text/css">
+        .car {
+          display: inline-block;
+          border: 2px solid #ccc;
+          box-shadow: 2px 2px 1px #eee;
+          padding: 10px;
+          margin-right: 10px;
+        }
+    </style>
   </head>
   <body>
 
-    <h2>Add React in One Minute</h2>
-    <p>This page demonstrates using React with no build tooling.</p>
-    <p>React is loaded as a script tag.</p>
+    <div id='root'></div>
 
-    <!-- We will put our React component inside this div. -->
-    <div id="like_button_container"></div>
+    <!-- <div class='car'>
+        <h3>Ford Focus</h3>
+        <p>Year: <strong>2017</strong></p>
+    </div>
+    <div class='car'>
+        <h3>Audi A8</h3>
+        <p>Year: <strong>2015</strong></p>
+    </div>
+    <div class='car'>
+        <h3>Mazda 3</h3>
+        <p>Year: <strong>2010</strong></p>
+    </div> -->
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script type="text/babel">
+        function Car(props) {
+          return(
+              <div className='car'>
+                  <h3>{props.name}</h3>
+                  <p>Year: <strong>{props.year}</strong></p>
+                    <small>This is car</small>
+              </div>
+
+          )
+        }
+
+        const App = (
+          <div>
+              <Car name='Ford Focus' year='2017' />
+              <Car name='Audi A8' year='2015' />
+              <Car name='Mazda 3' year='2010' />
+          </div>
+
+        )
+
+        ReactDOM.render(
+          App,
+          document.querySelector('#root')
+        )
+
+
+
+    </script>
+
+    
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <!-- Load our React component. -->
-    <script src="like_button.js"></script>
-
+   
   </body>
 </html>
