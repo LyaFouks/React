@@ -10,7 +10,11 @@ class App extends Component {
             {name: 'Audi', year: 2016},
             {name: 'Mazda 3', year: 2010}
         ],
-        pageTittle: 'React components'
+        pageTitle: 'React components'
+    }
+
+    changeTitleHandler = () => {
+        console.log('Clicked')
     }
 
     render() {
@@ -24,7 +28,9 @@ class App extends Component {
 
         return (
             <div style={divStyle}>
-                <h1>{this.state.pageTittle}</h1>
+                <h1>{this.state.pageTitle}</h1>
+
+                <button onClick={this.changeTitleHandler}>Change title</button>
 
                 <Car name={cars[0].name} year={cars[0].year} />
                 <Car name={cars[1].name} year={cars[1].year} />
